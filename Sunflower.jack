@@ -1,0 +1,10 @@
+/** Clase que maneja el comportamiento de Sunflower */
+class Sunflower {
+    /* Parámetros de Sunflower */
+    field int girasolX, girasolY;
+    static int girasolCosto, girasolVida, girasolCD; // CD = Cool Down, el tiempo de recarga de la planta.
+    static Plant girasol;
+    let girasol = Plant.new(2, 5, 0, 0) // Conseguir la posición donde apunta el cursor para los últimos parámetros.
+    
+    /* Función para dibujar la planta. */
+}
