@@ -5,7 +5,7 @@ While this version of the game is a lot more limited due to working within the l
 
 ## How to execute this project
 
-The official nand2tetris website links to an online IDE that features a *Jack compiler*. By cloning/downloading the repository and uploading the `.jack` files to the compiler, you can compile the files and play the game in its entirety using the *VM Emulator* provided in the website.  
+The official nand2tetris website links to an online IDE that features a [*Jack compiler*](https://nand2tetris.github.io/web-ide/compiler). By cloning/downloading the repository and uploading the `.jack` files to the compiler, you can compile the files and play the game in its entirety using the *VM Emulator* provided in the website.  
 
 ### Controls
 
