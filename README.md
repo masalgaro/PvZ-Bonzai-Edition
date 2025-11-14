@@ -9,11 +9,11 @@ The official nand2tetris website links to an online IDE that features a *Jack co
 
 ### Controls
 
-* Arrow keys: Move the cursor to select where to plant.  
-* S: Plant a sunflower.
-* P: Plant a peashooter.  
-* W: Plant a wallnut.  
-* C: Plant a cherrybomb.  
+* **Arrow keys:** Move the *cursor* to select where to plant.  
+* **S:** Plant a *sunflower*.
+* **P:** Plant a *peashooter*.  
+* **W:** Plant a *wallnut*.  
+* **C:** Plant a *cherrybomb*.  
 
 Sun is automatically added to your counter as sunflowers produce it, so there's no need to hover over them periodically.  
 Keep track of both sun costs and plant cooldowns, and try to survive until the timer runs out!  
