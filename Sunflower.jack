@@ -40,9 +40,6 @@ class Sunflower {
         var int sol;
         let sol = generarSol();
         // Enviar este sol al contador global.
-        if (girasolVida == 0) {
-            do girasol.eliminar();
-        }
         return;
     }
 }
