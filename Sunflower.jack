@@ -1,10 +1,45 @@
 /** Clase que maneja el comportamiento de Sunflower */
 class Sunflower {
     /* Parámetros de Sunflower */
-    field int girasolX, girasolY;
-    static int girasolCosto, girasolVida, girasolCD; // CD = Cool Down, el tiempo de recarga de la planta.
-    static Plant girasol;
-    let girasol = Plant.new(2, 5, 0, 0) // Conseguir la posición donde apunta el cursor para los últimos parámetros.
-    
+    field int girasolX, girasolY, girasolVida, girasolCD, solGenerar, tiempoEspera; // CD -> Cooldown o el tiempo de recarga.
+    static int girasolCosto;
+    field Plant girasol; // Los girasoles del juego
+
+    constructor Sunflower new() {
+        // Inicializar variables de cada girasol.
+        let girasolVida = 5;
+        let girasolCD = 7;
+        let girasolCosto = 2;
+        let solGenerar = 1;
+        let tiempoEspera = 6;
+        let girasol = Plant.plantar(girasolVida, girasolCosto, girasolCD, girasolX, girasolY);
+        do draw();
+        do comportamientoGirasol();
+        return this;
+    }
+
     /* Función para dibujar la planta. */
+    method void draw() {
+        return; // TODO: finalizar esta cosa
+    }
+
+    /* Función para agregar sol al contador. */
+    method int generarSol() {
+        // Reducir el tiempo de espera hasta 0 para crear un nuevo sol.
+        if (tiempoEspera > 0) { // Se usa un if en vez de un ciclo while para que los girasoles no "secuestren" el juego intentando generar sol.
+            let tiempoEspera = tiempoEspera - 1;
+            return 0;
+        }
+        let tiempoEspera = 7; // Re-establecer el tiempo de espera.
+        return 1; // Retorna un sol
+    }
+
+    /* Comportamiento */
+    method void comportamientoGirasol() {
+        // Revisar si necesita recibir daño o no.
+        var int sol;
+        let sol = generarSol();
+        // Enviar este sol al contador global.
+        return;
+    }
 }

@@ -12,6 +12,7 @@ class Plant {
         return this;    
     }
 
+    /* Código general para reducir la vida de la planta */
     method void recibirDano() { // cosa horrible no me deja escribir ñ
         if (vida = 0) {
             do eliminar();
@@ -22,9 +23,10 @@ class Plant {
         return;
     }
 
-    method void eliminar() { // Destructor
-        do Screen.setColor(false); // Eliminar la planta
-        do Screen.drawRectangle(xpos, x + 16, ypos, y + 16); // Eventualmente hacemos un mejor código cuando sepamos cómo representar las plantas.
+    /* Elimina la planta actual. */
+    method void eliminar() {
+        do Screen.setColor(false);
+        do Screen.drawRectangle(xpos, xpos + 16, ypos, ypos + 16); // Eventualmente hacemos un mejor código cuando sepamos cómo representar las plantas.
         do Memory.deAlloc(this);
         return;
     }
