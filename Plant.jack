@@ -23,7 +23,7 @@ class Plant {
 
     method void eliminar() { // Destructor
         do Screen.setColor(false); // Eliminar la planta
-        do Screen.(xpos, x + 16, ypos, y + 16); // Eventualmente hacemos un mejor código cuando sepamos cómo representar las plantas.
+        do Screen.drawrectangle(xpos, x + 16, ypos, y + 16); // Eventualmente hacemos un mejor código cuando sepamos cómo representar las plantas.
         do Memory.deAlloc(this);
         return;
     }
