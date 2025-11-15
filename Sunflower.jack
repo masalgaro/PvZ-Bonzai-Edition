@@ -14,7 +14,7 @@ class Sunflower {
         let tiempoEspera = 6;
         let girasol = Plant.plantar(girasolVida, girasolCosto, girasolCD, girasolX, girasolY);
         do draw(girasolX);
-        do comportamientoGirasol();
+        //do comportamientoGirasol(); // Este comportamiento se deberia llamar es dentro del Main.
         return this;
     }
 

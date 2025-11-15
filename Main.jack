@@ -5,6 +5,8 @@ class Main{
 		var Peashooter ps, ps2;
         var Sunflower sf, sf2;
         var Zombie z1, cone1;
+        var int contadorSol;
+        let contadorSol = 0;
         let posx = 3;
 
         let sf = Sunflower.new(0, 3);
@@ -15,7 +17,16 @@ class Main{
         let cone1 = Zombie.new(20, 24, 6);
 
         while(true){
+            let contadorSol = contadorSol + sf.generarSol();
+            let contadorSol = contadorSol + sf2.generarSol();
+            if (contadorSol > 9) {
+                let contadorSol = 9; // Limitar la cantidad de sol a 9
+            }
+            //do z1.walk();
             do drawPos(posx);
+            do Output.moveCursor(10, 1); // UBicamos el cursor para imprimir en la parte inferior de la pantalla.
+            do Output.backSpace(); // Eliminamos el número anterior, si no hay un número entonces no hace nada.
+            do Output.printInt(contadorSol);
             //do Sys.wait(500);
             let posx = posx + (32*32);
         }
