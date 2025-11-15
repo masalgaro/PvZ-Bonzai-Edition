@@ -3,10 +3,13 @@ class Main{
 
         var int posx;
 		var Peashooter ps, ps2;
+        var Sunflower sf, sf2;
         let posx = 3;
 
-        let ps = Peashooter.new(0, 3);
-        let ps2 = Peashooter.new(3, 3);
+        let sf = Sunflower.new(0, 3);
+        let sf2 = Sunflower.new(3, 3);
+        let ps = Peashooter.new(6, 3);
+        let ps2 = Peashooter.new(9, 3);
 
         while(true){
             do drawPos(posx);
