@@ -1,0 +1,30 @@
+class Main{
+    function void main(){
+
+        var int posx;
+		var Peashooter ps, ps2;
+        let posx = 3;
+
+        let ps = Peashooter.new(0, 3);
+        let ps2 = Peashooter.new(3, 3);
+
+        while(true){
+            do drawPos(posx);
+            //do Sys.wait(500);
+            let posx = posx + (32*32);
+        }
+        return;
+    }
+
+    
+   method void drawPos(int location) {
+	var int memAddress; 
+	let memAddress = 16384+location;
+	// column 0
+	do Memory.poke(memAddress, 5);
+	do Memory.poke(memAddress +32, 6);
+	do Memory.poke(memAddress +64, 7);
+	return;
+    }
+
+}
