@@ -1,33 +1,111 @@
-class Main{
-    function void main(){
+class Main {
+    function void main() {
 
-        var int posx;
-		var Peashooter ps, ps2;
+        var Peashooter ps, ps2;
         var Sunflower sf, sf2;
-        let posx = 3;
+
+        var Array yard1, yard2, yard3, yard4;
+        var int posx, posindex, keyboard, yardindex;
+        var Array updated;
+        var int keyboard;
+
+        let posx = 6;
+        let posindex = 2;
+        let yardindex = 0;
 
         let sf = Sunflower.new(0, 3);
         let sf2 = Sunflower.new(3, 3);
         let ps = Peashooter.new(6, 3);
         let ps2 = Peashooter.new(9, 3);
 
-        while(true){
-            do drawPos(posx);
-            //do Sys.wait(500);
-            let posx = posx + (32*32);
+        do drawPos(posx);
+
+        while (true) {
+
+            let keyboard = Keyboard.readChar();
+            let updated = move(posx, posindex, yardindex, keyboard);
+
+            let posx = updated[0];
+            let posindex = updated[1];
+            let yardindex = updated[2];
+
+            do Sys.wait(500);
         }
+
         return;
     }
 
-    
-   method void drawPos(int location) {
-	var int memAddress; 
-	let memAddress = 16384+location;
-	// column 0
-	do Memory.poke(memAddress, 5);
-	do Memory.poke(memAddress +32, 6);
-	do Memory.poke(memAddress +64, 7);
-	return;
+    method Array move(int posx, int posindex, int yardindex, int keyboard) {
+        var int k, xpos, col, row;
+        var Array result;
+
+        // copiar parámetros
+        let xpos = posx;
+        let col = posindex;
+        let row = yardindex;
+        let k = keyboard;
+
+        do clearPos(xpos);
+
+        // tecla 'a' (97)
+        if ((k - 97) = 0) {
+            if (col > 0) {
+                let xpos = xpos - 3;
+                let col = col - 1;
+            }
+        }
+
+        // tecla 's' (115)
+        if ((k - 115) = 0) {
+            if (row < 3) {
+                let xpos = xpos + (32*32);
+                let row = row + 1;
+            }
+        }
+
+        // tecla 'd' (100)
+        if ((k - 100) = 0) {
+            if (col < 10) {
+                let xpos = xpos + 3;
+                let col = col + 1;
+            }
+        }
+
+        // tecla 'w' (119)
+        if ((k - 119) = 0) {
+            if (row > 0) {
+                let xpos = xpos - (32*32);
+                let row = row - 1;
+            }
+        }
+
+        // crear array con solo 3 valores
+        let result = Array.new(3);
+        let result[0] = xpos;
+        let result[1] = col;
+        let result[2] = row;
+
+        do drawPos(xpos);
+        return result;
     }
 
+    method void drawPos(int location) {
+        var int memAddress;
+        let memAddress = 16384 + location;
+
+        do Memory.poke(memAddress, 5);
+        do Memory.poke(memAddress + 32, 6);
+        do Memory.poke(memAddress + 64, 7);
+        return;
+    }
+
+    method void clearPos(int location) {
+        var int memAddress;
+        let memAddress = 16384 + location;
+
+        do Memory.poke(memAddress, 0);
+        do Memory.poke(memAddress + 32, 0);
+        do Memory.poke(memAddress + 64, 0);
+        return;
+    }
 }
