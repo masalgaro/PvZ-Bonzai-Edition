@@ -128,12 +128,13 @@ class Zombie{
             return;
         }
         if (zombiVida = 0) {
-            do Screen.setColor(false);
-            do Screen.drawRectangle(zombiX, zombiX + 30, zombiY, zombiY + 30); // Eliminar el sprite del zombi
-            do Memory.deAlloc(this);
-            return;
+            do die();
         }
+		do Screen.setColor(false);
+		do Screen.drawRectangle(zombiX, zombiX + 30, zombiY, zombiY + 30); // elimina el sprite viejo del zombi.
         let zombiX = zombiX - 32; // Se desplaza horizontalmente.
+		do Screen.setColor(true);
+		do draw(zombiX);
         return;
     }
 
@@ -142,9 +143,9 @@ class Zombie{
     }
 
 	method void die() { // Para que el zombi se muera
-		Screen.setColor(false);
-		Screen.drawRectangle(zombiX, zombiX + 30, zombiY, zombiY + 30);
-		Memory.deAlloc(this);
+		do Screen.setColor(false);
+		do Screen.drawRectangle(zombiX, zombiX + 30, zombiY, zombiY + 30);
+		do Memory.deAlloc(this);
 		return;
 	}
 }
