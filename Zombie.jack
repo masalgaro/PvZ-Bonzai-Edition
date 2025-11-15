@@ -121,6 +121,116 @@ class Zombie{
 		return;
     }
 
+	method void deleteSprite(int location) {
+		var int memAddress;
+        let memAddress = 16384 + location;
+		if (zombiVida < 15) {
+ 	    	// column 0
+			do Memory.poke(memAddress +160, 0);
+			do Memory.poke(memAddress +192, 0);
+			do Memory.poke(memAddress +224, 0);
+			do Memory.poke(memAddress +256, 0);
+			do Memory.poke(memAddress +288, 0);
+			do Memory.poke(memAddress +320, 0);
+			do Memory.poke(memAddress +352, 0);
+			do Memory.poke(memAddress +384, 0);
+			do Memory.poke(memAddress +416, 0);
+			do Memory.poke(memAddress +448, 0);
+			do Memory.poke(memAddress +480, 0);
+			do Memory.poke(memAddress +512, 0);
+			do Memory.poke(memAddress +544, 0);
+			do Memory.poke(memAddress +576, 0);
+			do Memory.poke(memAddress +608, 0);
+			do Memory.poke(memAddress +640, 0);
+			do Memory.poke(memAddress +672, 0);
+			do Memory.poke(memAddress +704, 0);
+			do Memory.poke(memAddress +736, 0);
+			do Memory.poke(memAddress +768, 0);
+			do Memory.poke(memAddress +800, 0);
+			do Memory.poke(memAddress +832, 0);
+			do Memory.poke(memAddress +864, 0);
+			do Memory.poke(memAddress +896, 0);
+			do Memory.poke(memAddress +928, 0);
+			do Memory.poke(memAddress +960, 0);
+			do Memory.poke(memAddress +992, 0);
+			// column 1
+			do Memory.poke(memAddress +193, 0);
+			do Memory.poke(memAddress +161, 0);
+			do Memory.poke(memAddress +225, 0);
+			do Memory.poke(memAddress +289, 0);
+			do Memory.poke(memAddress +257, 0);
+			do Memory.poke(memAddress +321, 0);
+			do Memory.poke(memAddress +353, 0);
+			do Memory.poke(memAddress +385, 0);
+			do Memory.poke(memAddress +417, 0);
+			do Memory.poke(memAddress +449, 0);
+			do Memory.poke(memAddress +641, 0);
+			do Memory.poke(memAddress +481, 0);
+			do Memory.poke(memAddress +513, 0);
+			do Memory.poke(memAddress +545, 0);
+			do Memory.poke(memAddress +577, 0);
+			do Memory.poke(memAddress +609, 0);
+			do Memory.poke(memAddress +673, 0);
+			do Memory.poke(memAddress +705, 0);
+			do Memory.poke(memAddress +737, 0);
+			do Memory.poke(memAddress +769, 0);
+			return;
+		}
+		if (zombiVida = 15 | zombiVida > 15 ) {
+			// column 0
+			do Memory.poke(memAddress +160, 0);
+			do Memory.poke(memAddress +192, 0);
+			do Memory.poke(memAddress +224, 0);
+			do Memory.poke(memAddress +256, 0);
+			do Memory.poke(memAddress +288, 0);
+			do Memory.poke(memAddress +320, 0);
+			do Memory.poke(memAddress +352, 0);
+			do Memory.poke(memAddress +384, 0);
+			do Memory.poke(memAddress +416, 0);
+			do Memory.poke(memAddress +448, 0);
+			do Memory.poke(memAddress +480, 0);
+			do Memory.poke(memAddress +512, 0);
+			do Memory.poke(memAddress +544, 0);
+			do Memory.poke(memAddress +576, 0);
+			do Memory.poke(memAddress +608, 0);
+			do Memory.poke(memAddress +640, 0);
+			do Memory.poke(memAddress +672, 0);
+			do Memory.poke(memAddress +704, 0);
+			do Memory.poke(memAddress +736, 0);
+			do Memory.poke(memAddress +768, 0);
+			do Memory.poke(memAddress +800, 0);
+			do Memory.poke(memAddress +832, 0);
+			do Memory.poke(memAddress +864, 0);
+			do Memory.poke(memAddress +896, 0);
+			do Memory.poke(memAddress +928, 0);
+			do Memory.poke(memAddress +960, 0);
+			do Memory.poke(memAddress +992, 0);
+			// column 1
+			do Memory.poke(memAddress +225, 0);
+			do Memory.poke(memAddress +161, 0);
+			do Memory.poke(memAddress +193, 0);
+			do Memory.poke(memAddress +257, 0);
+			do Memory.poke(memAddress +289, 0);
+			do Memory.poke(memAddress +321, 0);
+			do Memory.poke(memAddress +353, 0);
+			do Memory.poke(memAddress +385, 0);
+			do Memory.poke(memAddress +417, 0);
+			do Memory.poke(memAddress +449, 0);
+			do Memory.poke(memAddress +641, 0);
+			do Memory.poke(memAddress +481, 0);
+			do Memory.poke(memAddress +513, 0);
+			do Memory.poke(memAddress +545, 0);
+			do Memory.poke(memAddress +577, 0);
+			do Memory.poke(memAddress +609, 0);
+			do Memory.poke(memAddress +673, 0);
+			do Memory.poke(memAddress +705, 0);
+			do Memory.poke(memAddress +737, 0);
+			do Memory.poke(memAddress +769, 0);
+			return;
+		}
+		return;
+	}
+
     method void walk() {
         if (zombiX = 0) {
             do Memory.deAlloc(this); // El zombi ya se va a salir de la pantalla y no lo necesitamos.
@@ -128,12 +238,11 @@ class Zombie{
             return;
         }
         if (zombiVida = 0) {
-            do Screen.setColor(false);
-            do Screen.drawRectangle(zombiX, zombiX + 30, zombiY, zombiY + 30); // Eliminar el sprite del zombi
-            do Memory.deAlloc(this);
-            return;
+            do die();
         }
-        let zombiX = zombiX - 32; // Se desplaza horizontalmente.
+		do deleteSprite(zombiX);
+        let zombiX = zombiX - 1; // Se desplaza horizontalmente.
+		do draw(zombiX);
         return;
     }
 
@@ -142,9 +251,9 @@ class Zombie{
     }
 
 	method void die() { // Para que el zombi se muera
-		Screen.setColor(false);
-		Screen.drawRectangle(zombiX, zombiX + 30, zombiY, zombiY + 30);
-		Memory.deAlloc(this);
+		do Screen.setColor(false);
+		do Screen.drawRectangle(zombiX, zombiX + 30, zombiY, zombiY + 30);
+		do Memory.deAlloc(this);
 		return;
 	}
 }
