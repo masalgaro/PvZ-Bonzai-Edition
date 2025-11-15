@@ -24,9 +24,6 @@ function Sunflower.new 0
     call Sunflower.draw 2
     pop temp 0
     push pointer 0
-    call Sunflower.comportamientoGirasol 1
-    pop temp 0
-    push pointer 0
     return
 function Sunflower.draw 1
     push argument 0

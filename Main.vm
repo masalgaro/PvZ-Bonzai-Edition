@@ -1,10 +1,12 @@
-function Main.main 14
+function Main.main 17
     push constant 6
     pop local 8
     push constant 2
     pop local 9
     push constant 0
     pop local 11
+    push constant 0
+    pop local 16
     push constant 0
     push constant 3
     call Sunflower.new 2
@@ -21,9 +23,23 @@ function Main.main 14
     push constant 3
     call Peashooter.new 2
     pop local 1
+    push constant 10
+    push constant 30
+    push constant 3
+    call Zombie.new 3
+    pop local 14
+    push constant 20
+    push constant 24
+    push constant 6
+    call Zombie.new 3
+    pop local 15
     push pointer 0
     push local 8
     call Main.drawPos 2
+    pop temp 0
+    push constant 15
+    push constant 1
+    call Output.moveCursor 2
     pop temp 0
 label Main_0
     push constant 1
@@ -57,8 +73,38 @@ label Main_0
     pop pointer 1
     push that 0
     pop local 11
-    push constant 500
-    call Sys.wait 1
+    push local 16
+    push local 2
+    call Sunflower.generarSol 1
+    add
+    pop local 16
+    push local 16
+    push local 3
+    call Sunflower.generarSol 1
+    add
+    pop local 16
+    push local 16
+    push constant 9
+    gt
+    not
+    if-goto Main_3
+    push constant 9
+    pop local 16
+    goto Main_2
+label Main_3
+label Main_2
+    push pointer 0
+    push local 8
+    call Main.drawPos 2
+    pop temp 0
+    push constant 15
+    push constant 1
+    call Output.moveCursor 2
+    pop temp 0
+    call Output.backSpace 0
+    pop temp 0
+    push local 16
+    call Output.printInt 1
     pop temp 0
     goto Main_0
 label Main_1
@@ -85,12 +131,12 @@ function Main.move 5
     push constant 0
     eq
     not
-    if-goto Main_3
+    if-goto Main_5
     push local 2
     push constant 0
     gt
     not
-    if-goto Main_5
+    if-goto Main_7
     push local 1
     push constant 3
     sub
@@ -99,24 +145,24 @@ function Main.move 5
     push constant 1
     sub
     pop local 2
+    goto Main_6
+label Main_7
+label Main_6
     goto Main_4
 label Main_5
 label Main_4
-    goto Main_2
-label Main_3
-label Main_2
     push local 0
     push constant 115
     sub
     push constant 0
     eq
     not
-    if-goto Main_7
+    if-goto Main_9
     push local 3
     push constant 3
     lt
     not
-    if-goto Main_9
+    if-goto Main_11
     push local 1
     push constant 32
     push constant 32
@@ -127,24 +173,24 @@ label Main_2
     push constant 1
     add
     pop local 3
+    goto Main_10
+label Main_11
+label Main_10
     goto Main_8
 label Main_9
 label Main_8
-    goto Main_6
-label Main_7
-label Main_6
     push local 0
     push constant 100
     sub
     push constant 0
     eq
     not
-    if-goto Main_11
+    if-goto Main_13
     push local 2
     push constant 10
     lt
     not
-    if-goto Main_13
+    if-goto Main_15
     push local 1
     push constant 3
     add
@@ -153,24 +199,24 @@ label Main_6
     push constant 1
     add
     pop local 2
+    goto Main_14
+label Main_15
+label Main_14
     goto Main_12
 label Main_13
 label Main_12
-    goto Main_10
-label Main_11
-label Main_10
     push local 0
     push constant 119
     sub
     push constant 0
     eq
     not
-    if-goto Main_15
+    if-goto Main_17
     push local 3
     push constant 0
     gt
     not
-    if-goto Main_17
+    if-goto Main_19
     push local 1
     push constant 32
     push constant 32
@@ -181,12 +227,12 @@ label Main_10
     push constant 1
     sub
     pop local 3
+    goto Main_18
+label Main_19
+label Main_18
     goto Main_16
 label Main_17
 label Main_16
-    goto Main_14
-label Main_15
-label Main_14
     push constant 3
     call Array.new 1
     pop local 4
