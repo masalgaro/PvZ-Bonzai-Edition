@@ -140,4 +140,11 @@ class Zombie{
     method void eat() { // Para comerse a una planta.
         return;
     }
+
+	method void die() { // Para que el zombi se muera
+		Screen.setColor(false);
+		Screen.drawRectangle(zombiX, zombiX + 30, zombiY, zombiY + 30);
+		Memory.deAlloc(this);
+		return;
+	}
 }

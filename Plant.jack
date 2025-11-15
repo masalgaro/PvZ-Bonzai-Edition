@@ -26,7 +26,7 @@ class Plant {
     /* Elimina la planta actual. */
     method void eliminar() {
         do Screen.setColor(false);
-        do Screen.drawRectangle(xpos, xpos + 16, ypos, ypos + 16); // Eventualmente hacemos un mejor código cuando sepamos cómo representar las plantas.
+        do Screen.drawRectangle(xpos, xpos + 20, ypos, ypos + 20); // Eventualmente hacemos un mejor código cuando sepamos cómo representar las plantas.
         do Memory.deAlloc(this);
         return;
     }
