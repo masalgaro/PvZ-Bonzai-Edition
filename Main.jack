@@ -3,33 +3,19 @@ class Main {
 
         var Peashooter ps, ps2;
         var Sunflower sf, sf2;
-
-        var Array yard1, yard2, yard3, yard4;
-        var int posx, posindex, keyboard, yardindex;
-        var Array updated;
-        var int keyboard;
-
-        let posx = 6;
-        let posindex = 2;
-        let yardindex = 0;
+        let posx = 3;
 
         let sf = Sunflower.new(0, 3);
         let sf2 = Sunflower.new(3, 3);
         let ps = Peashooter.new(6, 3);
         let ps2 = Peashooter.new(9, 3);
+        let z1 = Zombie.new(10, 30, 3);
+        let cone1 = Zombie.new(20, 24, 6);
 
-        do drawPos(posx);
-
-        while (true) {
-
-            let keyboard = Keyboard.readChar();
-            let updated = move(posx, posindex, yardindex, keyboard);
-
-            let posx = updated[0];
-            let posindex = updated[1];
-            let yardindex = updated[2];
-
-            do Sys.wait(500);
+        while(true){
+            do drawPos(posx);
+            //do Sys.wait(500);
+            let posx = posx + (32*32);
         }
 
         return;
