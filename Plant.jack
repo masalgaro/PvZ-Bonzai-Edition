@@ -1,14 +1,30 @@
 /** Clase que maneja los parámetros básicos de todas las plantas */
 class Plant {
     // Definimos parámetros globales de las plantas
-    field int costo, vida, recarga, xpos, ypos; // "field" permite crear copias de estas variables para cada instancia del objeto.
+    field int vida, costo, recarga, xpos, ypos; // "field" permite crear copias de estas variables para cada instancia del objeto.
 
-    constructor Plant new(int nCosto, int nVida, int nXPos, int nYPos, int nRecarga) {
-        let costo = nCosto;
+    constructor Plant plantar(int nVida, int nCosto, int nRecarga, int nXPos, int nYPos) { // Plantar
         let vida = nVida;
+        let costo = nCosto;
+        let recarga = nRecarga;
         let xpos = nXPos;
         let ypos = nYPos;
-        let recarga = nRecarga;
         return this;    
+    }
+
+    method void recibirDaño() {
+        if (vida = 0) {
+            do eliminar();
+            return;
+            // Remover la planta
+        }
+        let vida = vida - 1; // Baja la vida de la planta.
+    }
+
+    method void eliminar() { // Destructor
+        do Screen.setColor(false); // Eliminar la planta
+        do Screen.(xpos, x + 16, ypos, y + 16); // Eventualmente hacemos un mejor código cuando sepamos cómo representar las plantas.
+        do Memory.deAlloc(this);
+        return;
     }
 }
