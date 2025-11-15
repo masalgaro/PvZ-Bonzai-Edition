@@ -12,18 +12,19 @@ class Plant {
         return this;    
     }
 
-    method void recibirDaño() {
+    method void recibirDano() { // cosa horrible no me deja escribir ñ
         if (vida = 0) {
             do eliminar();
             return;
             // Remover la planta
         }
         let vida = vida - 1; // Baja la vida de la planta.
+        return;
     }
 
     method void eliminar() { // Destructor
         do Screen.setColor(false); // Eliminar la planta
-        do Screen.drawrectangle(xpos, x + 16, ypos, y + 16); // Eventualmente hacemos un mejor código cuando sepamos cómo representar las plantas.
+        do Screen.drawRectangle(xpos, x + 16, ypos, y + 16); // Eventualmente hacemos un mejor código cuando sepamos cómo representar las plantas.
         do Memory.deAlloc(this);
         return;
     }
