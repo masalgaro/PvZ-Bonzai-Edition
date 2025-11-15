@@ -1,0 +1,18 @@
+class Wallnut {
+    field int nutVida, nutCD;
+    static int nutCosto;
+    field Plant nuez;
+
+    constructor Wallnut new(int nutX, int nutY) {
+        let nutVida = 20;
+        let nutCD = 15;
+        let nutCosto = 2;
+        let nuez = Plant.plantar(nutVida, nutCosto, nutCD, nutX, nutY);
+        do draw(); // el sprite de la cosa esta
+        return this;
+    }
+
+    method void draw() {
+        return; // Placeholder
+    }
+}

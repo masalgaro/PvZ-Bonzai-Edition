@@ -1,11 +1,11 @@
 /** Clase que maneja el comportamiento de Sunflower */
 class Sunflower {
     /* Parámetros de Sunflower */
-    field int girasolX, girasolY, girasolVida, girasolCD, solGenerar, tiempoEspera; // CD -> Cooldown o el tiempo de recarga.
+    field int girasolVida, girasolCD, solGenerar, tiempoEspera; // CD -> Cooldown o el tiempo de recarga.
     static int girasolCosto;
     field Plant girasol; // Los girasoles del juego
 
-    constructor Sunflower new() {
+    constructor Sunflower new(int girasolX, int girasolY) {
         // Inicializar variables de cada girasol.
         let girasolVida = 5;
         let girasolCD = 7;
