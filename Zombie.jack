@@ -16,6 +16,45 @@ class Zombie{
     method void draw(int location) {
         var int memAddress;
         let memAddress = 16384 + location;
+		if (zombiVida = 0 | zombiVida < 0) { // Sprite de muerto
+			// column 0
+			do Memory.poke(memAddress +160, -16384);
+			do Memory.poke(memAddress +64, 0);
+			do Memory.poke(memAddress +96, 0);
+			do Memory.poke(memAddress +128, 0);
+			do Memory.poke(memAddress +192, 16384);
+			do Memory.poke(memAddress +224, 15608);
+			do Memory.poke(memAddress +256, 2022);
+			do Memory.poke(memAddress +288, 49);
+			do Memory.poke(memAddress +320, -80);
+			do Memory.poke(memAddress +352, 119);
+			do Memory.poke(memAddress +384, 88);
+			do Memory.poke(memAddress +416, -113);
+			// column 1
+			do Memory.poke(memAddress +97, 384);
+			do Memory.poke(memAddress +1, 0);
+			do Memory.poke(memAddress +33, 0);
+			do Memory.poke(memAddress +65, 0);
+			do Memory.poke(memAddress +129, 1008);
+			do Memory.poke(memAddress +161, 1001);
+			do Memory.poke(memAddress +193, 967);
+			do Memory.poke(memAddress +225, 577);
+			do Memory.poke(memAddress +257, 127);
+			do Memory.poke(memAddress +289, 963);
+			do Memory.poke(memAddress +321, 974);
+			do Memory.poke(memAddress +353, 1018);
+			do Memory.poke(memAddress +385, 846);
+			do Memory.poke(memAddress +417, 3);
+			// column -1
+			do Memory.poke(memAddress +319, ~32767);
+			do Memory.poke(memAddress +223, 0);
+			do Memory.poke(memAddress +255, 0);
+			do Memory.poke(memAddress +287, 0);
+			do Memory.poke(memAddress +351, 16384);
+			do Memory.poke(memAddress +383, -16384);
+			do Memory.poke(memAddress +415, ~32767);
+			return;
+		}
 		if (zombiVida < 15) {
  	    	// column 0
 			do Memory.poke(memAddress +160, 256);
@@ -126,45 +165,6 @@ class Zombie{
 	method void deleteSprite(int location) {
 		var int memAddress;
         let memAddress = 16384 + location;
-		if (zombiVida = 0 | zombiVida < 0) { // Sprite de muerto
-			// column 0
-			do Memory.poke(memAddress +160, -16384);
-			do Memory.poke(memAddress +64, 0);
-			do Memory.poke(memAddress +96, 0);
-			do Memory.poke(memAddress +128, 0);
-			do Memory.poke(memAddress +192, 16384);
-			do Memory.poke(memAddress +224, 15608);
-			do Memory.poke(memAddress +256, 2022);
-			do Memory.poke(memAddress +288, 49);
-			do Memory.poke(memAddress +320, -80);
-			do Memory.poke(memAddress +352, 119);
-			do Memory.poke(memAddress +384, 88);
-			do Memory.poke(memAddress +416, -113);
-			// column 1
-			do Memory.poke(memAddress +97, 384);
-			do Memory.poke(memAddress +1, 0);
-			do Memory.poke(memAddress +33, 0);
-			do Memory.poke(memAddress +65, 0);
-			do Memory.poke(memAddress +129, 1008);
-			do Memory.poke(memAddress +161, 1001);
-			do Memory.poke(memAddress +193, 967);
-			do Memory.poke(memAddress +225, 577);
-			do Memory.poke(memAddress +257, 127);
-			do Memory.poke(memAddress +289, 963);
-			do Memory.poke(memAddress +321, 974);
-			do Memory.poke(memAddress +353, 1018);
-			do Memory.poke(memAddress +385, 846);
-			do Memory.poke(memAddress +417, 3);
-			// column -1
-			do Memory.poke(memAddress +319, ~32767);
-			do Memory.poke(memAddress +223, 0);
-			do Memory.poke(memAddress +255, 0);
-			do Memory.poke(memAddress +287, 0);
-			do Memory.poke(memAddress +351, 16384);
-			do Memory.poke(memAddress +383, -16384);
-			do Memory.poke(memAddress +415, ~32767);
-			return;
-		}
 		if (zombiVida < 15) {
  	    	// column 0
 			do Memory.poke(memAddress +160, 0);
