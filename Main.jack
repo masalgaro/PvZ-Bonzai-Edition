@@ -44,7 +44,8 @@ class Main {
         // borrar pantalla e iniciar juego
         do Screen.clearScreen();
 
-        // empieza tu juego aquí
+       
+       //Aqui empieza el juego
 
 
         let i = 0;
