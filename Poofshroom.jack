@@ -1,0 +1,58 @@
+class Poofshroom {
+    field int puffVida, puffCD;
+    static int puffCosto;
+    field Plant puffshroom;
+
+    constructor Poofshroom new(int puffX, int puffY) {
+        let puffVida = 4;
+        let puffCD = 5;
+        let puffCosto = 0;
+        let puffshroom = Plant.plantar(puffVida, puffCosto, puffCD, puffX, puffY);
+        do draw();
+        return this;
+    }
+
+    method void draw(int location) {
+    	var int memAddress; 
+	    let memAddress = 16384+location;
+    	// column 0
+	    do Memory.poke(memAddress +96, 7680);
+    	do Memory.poke(memAddress, 0);
+	    do Memory.poke(memAddress +32, 0);
+    	do Memory.poke(memAddress +64, 0);
+	    do Memory.poke(memAddress +128, -3616);
+    	do Memory.poke(memAddress +160, 31224);
+	    do Memory.poke(memAddress +192, 32756);
+    	do Memory.poke(memAddress +224, -14);
+	    do Memory.poke(memAddress +256, -7);
+    	do Memory.poke(memAddress +288, -897);
+	    do Memory.poke(memAddress +320, -1921);
+    	do Memory.poke(memAddress +352, -2);
+	    do Memory.poke(memAddress +384, 12);
+    	do Memory.poke(memAddress +416, 8);
+	    do Memory.poke(memAddress +448, 14352);
+    	do Memory.poke(memAddress +480, 16);
+	    do Memory.poke(memAddress +512, 32);
+    	do Memory.poke(memAddress +544, -16320);
+	    do Memory.poke(memAddress +576, 16256);
+    	// column 1
+	    do Memory.poke(memAddress +161, 3);
+    	do Memory.poke(memAddress +65, 0);
+	    do Memory.poke(memAddress +97, 0);
+    	do Memory.poke(memAddress +129, 0);
+	    do Memory.poke(memAddress +193, 6);
+    	do Memory.poke(memAddress +225, 15);
+	    do Memory.poke(memAddress +257, 31);
+    	do Memory.poke(memAddress +289, 31);
+	    do Memory.poke(memAddress +321, 17);
+    	do Memory.poke(memAddress +353, 9);
+	    do Memory.poke(memAddress +385, 6);
+    	do Memory.poke(memAddress +417, 2);
+	    do Memory.poke(memAddress +449, 5);
+    	do Memory.poke(memAddress +481, 10);
+	    do Memory.poke(memAddress +513, 8);
+    	do Memory.poke(memAddress +545, 11);
+	    do Memory.poke(memAddress +577, 4);
+	    return;
+    }
+}
