@@ -1,12 +1,14 @@
 class Zombie{
-    field int zombiVida, zombiX, zombiY;
+    field int zombiVida, zombiX, zombiIndex, zombieYard, cont;
     // Los distintos tipos de zombis se pueden hacer simplement ajustando el parámetro de vida para que sea más grande o pequeño.
     // Por las limitaciones de la Hack computer, realmente no vamos a usar más que el zombi genérico y si mucho uno de cono o algo así.
 
-    constructor Zombie new(int vida, int posX, int posY) {
+    constructor Zombie new(int vida, int posX, int indice, int yardindex) {
         let zombiVida = vida;
         let zombiX = posX;
-        let zombiY = posY;
+        let zombiIndex = indice;
+		let zombieYard = yardindex;
+		let cont = 0;
         do draw(posX);
         return this;
     }
@@ -231,7 +233,7 @@ class Zombie{
 		return;
 	}
 
-    method int walk() {
+    method Array walk(Array arr) {
         if (zombiX = 0) {
             do Memory.deAlloc(this); // El zombi ya se va a salir de la pantalla y no lo necesitamos.
             // Código para que salga Game Over
@@ -240,10 +242,27 @@ class Zombie{
         if (zombiVida = 0) {
             do die();
         }
-		do deleteSprite(zombiX);
-        let zombiX = zombiX - 1; // Se desplaza horizontalmente.
-		do draw(zombiX);
-        return 0;
+
+		//verificar que hay al frente del zombie
+		if(arr[zombiIndex-1] = 0){
+
+			do deleteSprite(zombiX);
+        	let zombiX = zombiX - 1; // Se desplaza horizontalmente.
+			do draw(zombiX);
+
+			let cont = cont + 1;
+			if(cont = 3){
+				let zombiIndex = zombiIndex + 1;
+				let cont = 0;
+			}
+		}
+
+		if(arr[zombiIndex-1] > 0){
+			let arr[zombiIndex-1] = arr[zombiIndex-1] - 2;
+		}
+
+
+        return arr;
     }
 
     method void eat() { // Para comerse a una planta.
@@ -252,8 +271,27 @@ class Zombie{
 
 	method void die() { // Para que el zombi se muera
 		do Screen.setColor(false);
-		do Screen.drawRectangle(zombiX, zombiX + 30, zombiY, zombiY + 30);
-		do Memory.deAlloc(this);
+		//do Screen.drawRectangle(zombiX, zombiX + 30, zombiY, zombiY + 30);
+		do deleteSprite(zombiX);
+		//do Memory.deAlloc(this);
 		return;
+	}
+
+	method int getYard(){
+		return zombieYard;
+	}
+
+	method void restarVida(int dano){
+		let zombiVida = zombiVida - dano;
+
+		if(zombiVida = 0){
+			do die();
+		}
+
+		return;
+	}
+
+	method int getVida(){
+		return zombiVida;
 	}
 }

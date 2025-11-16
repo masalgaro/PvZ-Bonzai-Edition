@@ -1,10 +1,12 @@
 class Main {
+
+    static Array yard1, yard2, yard3, yard4;
+
     function void main() {
 
         var Peashooter ps, ps2;
         var Sunflower sf, sf2;
 
-        var Array yard1, yard2, yard3, yard4;
         var int posx, posindex, keyboard, yardindex;
         var Array updated;
         var int keyboard;
@@ -20,6 +22,8 @@ class Main {
         var int contadorSol;
 
         var int avanzar;
+
+        var int zindex;
 
         var int i, n;
 
@@ -43,8 +47,8 @@ class Main {
         let plants = Peashooter.new(6, 3);
         let plants = Peashooter.new(9, 3);
 
-        let zombies[0] = Zombie.new(10, 30, 3);
-        let zombies[1] = Zombie.new(10, 24, 6);
+        let zombies[0] = Zombie.new(10, 30, 10, 1);
+        let zombies[1] = Zombie.new(20, 24, 8, 1);
 
         //let zombietemp = Zombie.new(20, 24, 6);
 
@@ -65,7 +69,19 @@ class Main {
                 if(contadorSol>1){
                     let plants = Sunflower.new(posx, 3); 
                     let contadorSol = contadorSol - 2;
-                    let avanzar = 250;
+
+                        if(yardindex = 1){
+                            let yard1[posindex] = 4;
+                        }
+                        if(yardindex = 2){
+                            let yard2[posindex] = 4;
+                        }
+                        if(yardindex = 3){
+                            let yard3[posindex] = 4;
+                        }
+                        if(yardindex = 4){
+                            let yard4[posindex] = 4;
+                        }
                 }
             }
 
@@ -73,7 +89,19 @@ class Main {
                 if(contadorSol>3){
                     let plants = Peashooter.new(posx, 3);
                     let  contadorSol = contadorSol - 4;
-                    let avanzar = 100;
+                    
+                    if(yardindex = 1){
+                            let yard1[posindex] = 10;
+                        }
+                        if(yardindex = 2){
+                            let yard2[posindex] = 10;
+                        }
+                        if(yardindex = 3){
+                            let yard3[posindex] = 10;
+                        }
+                        if(yardindex = 4){
+                            let yard4[posindex] = 10;
+                        }
                 }
             }
 
@@ -81,7 +109,19 @@ class Main {
               if(contadorSol>3){
                  let plants = Wallnut.new(posx, 3); 
                  let contadorSol = contadorSol - 4;
-                 let avanzar = 100;
+                 
+                        if(yardindex = 1){
+                            let yard1[posindex] = 20;
+                        }
+                        if(yardindex = 2){
+                            let yard2[posindex] = 20;
+                        }
+                        if(yardindex = 3){
+                            let yard3[posindex] = 20;
+                        }
+                        if(yardindex = 4){
+                            let yard4[posindex] = 20;
+                        }
                 }  
             }
 
@@ -106,8 +146,28 @@ class Main {
                 if(true){
                     //while(i < numActualZombies){ 
                         let zombietemp = zombies[i];
-                        let n = zombietemp.walk();
-                        let n = 0;
+                        
+                        if(zombietemp.getVida() > 0){
+                            let zindex = zombietemp.getYard();
+                        if(zindex = 1){
+                            let yard1 = zombietemp.walk(yard1);
+                        }
+                        if(zindex = 2){
+                            let yard2 = zombietemp.walk(yard2);
+                        }
+                        if(zindex = 3){
+                            let yard3 = zombietemp.walk(yard3);
+                        }
+                        if(zindex = 4){
+                            let yard4 = zombietemp.walk(yard4);
+                        }
+                        }
+
+                        //testeo
+                        do zombietemp.restarVida(2);
+
+                        //let n = zombietemp.walk();
+                        //let n = 0;
                         let i = i+1;
                     //}
                     

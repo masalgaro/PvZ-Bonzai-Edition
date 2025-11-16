@@ -6,7 +6,7 @@ class Peashooter {
 
     constructor Peashooter new(int psX, int psY) {
         let psvida = 10;
-        let psdano = 5;
+        let psdano = 2;
         let pscosto = 4;
         let guisante = Plant.plantar(psvida, pscosto, psdano, psX, psY);
         do draw(psX); // el sprite de la cosa esta

@@ -7,7 +7,7 @@ class Sunflower {
 
     constructor Sunflower new(int girasolX, int girasolY) {
         // Inicializar variables de cada girasol.
-        let girasolVida = 5;
+        let girasolVida = 4;
         let girasolCD = 7;
         let girasolCosto = 2;
         let solGenerar = 1;
