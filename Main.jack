@@ -2,7 +2,7 @@ class Main {
 
     static Array yard1, yard2, yard3, yard4;
 
-    function void main() {
+    function void main() {  
 
         var Peashooter ps, ps2;
         var Sunflower sf, sf2;
@@ -26,6 +26,26 @@ class Main {
         var int zindex;
 
         var int i, n;
+
+        var char op;
+        
+        var int opcion;
+
+        let opcion = Menu.mostrarMenu();
+
+        // salir
+        if (opcion = 51) {
+            do Screen.clearScreen();
+            do Output.printString("Saliendo...");
+            do Sys.wait(300);
+            do Sys.halt();
+        }
+
+        // borrar pantalla e iniciar juego
+        do Screen.clearScreen();
+
+        // empieza tu juego aquí
+
 
         let i = 0;
         let numActualZombies = 2;
