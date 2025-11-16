@@ -7,7 +7,7 @@ class Menu {
         do Output.moveCursor(0, 5);
         do Output.printString("----------------------------------------");
         do Output.moveCursor(1, 5);
-        do Output.printString("   BIENVENIDO A PLANTS vs ZOMBIES - JACK ");
+        do Output.printString("   BIENVENIDO A PLANTS vs ZOMBIES EN JACK ");
         do Output.moveCursor(2, 5);
         do Output.printString("----------------------------------------");
 
@@ -24,13 +24,52 @@ class Menu {
 
         do Output.printString("Selecciona una opcion: ");
 
-     
-     
-
         let op = Keyboard.readChar();
+
+        // Opción instrucciones
+        if (op = 50) {        
+            do Menu.mostrarInstrucciones();
+            return Menu.mostrarMenu(); 
+        }
 
         return op;
     }
 
- 
+    // Funcion para instrucciones
+    function void mostrarInstrucciones() {
+
+        do Screen.clearScreen();
+
+        do Output.moveCursor(0, 2);
+        do Output.printString("============= INSTRUCCIONES =============");
+
+        do Output.moveCursor(2, 2);
+        do Output.printString("- Usa A/D para moverte horizontalmente");
+
+        do Output.moveCursor(3, 2);
+        do Output.printString("- Usa W/S para subir o bajar carril");
+
+        do Output.moveCursor(4, 2);
+        do Output.printString("- G = Girasol");
+
+        do Output.moveCursor(5, 2);
+        do Output.printString("- L = Lanzaguisantes");
+
+        do Output.moveCursor(6, 2);
+        do Output.printString("- N = Nuez");
+
+        do Output.moveCursor(7, 2);
+        do Output.printString("- P = Hongo");
+
+        do Output.moveCursor(9, 2);
+        do Output.printString("Presiona una tecla para volver...");
+
+        while (Keyboard.readChar() = 0) {
+            do Sys.wait(50);
+        }
+
+        return;
+    }
+
+
 }
