@@ -8,7 +8,7 @@ class Poofshroom {
         let puffCD = 5;
         let puffCosto = 0;
         let puffshroom = Plant.plantar(puffVida, puffCosto, puffCD, puffX, puffY);
-        do draw();
+        do draw(puffX);
         return this;
     }
 

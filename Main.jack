@@ -66,7 +66,7 @@ class Main {
             //plantar una planta
             let selected = Keyboard.readChar();
             if(selected = 103){ //Girasol
-                if(contadorSol>1){
+                if(contadorSol>2){
                     let plants = Sunflower.new(posx, 3); 
                     let contadorSol = contadorSol - 2;
 
@@ -106,7 +106,7 @@ class Main {
             }
 
             if(selected = 110){ //Nuez
-              if(contadorSol>3){
+              if(contadorSol>4){
                  let plants = Wallnut.new(posx, 3); 
                  let contadorSol = contadorSol - 4;
                  
@@ -123,6 +123,17 @@ class Main {
                             let yard4[posindex] = 20;
                         }
                 }  
+            }
+
+            if(selected = 112){ // Honguito
+                let plants = Poofshroom.new(posx, 3);
+                // El hongo es gratis
+
+                if(yardindex = 1){ let yard1[posindex] = 4;}
+                if(yardindex = 2){ let yard2[posindex] = 4;}
+                if(yardindex = 3){ let yard3[posindex] = 4;}
+                if(yardindex = 4){ let yard4[posindex] = 4;}
+
             }
 
             if(selected = 128){
