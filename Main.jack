@@ -13,8 +13,20 @@ class Main {
         var Array plants;
         var Array zombies;
 
-        var Zombie z1, cone1;
+        var Zombie zombietemp;
+        var int numActualZombies;
+
+        //var Zombie z1, cone1;
         var int contadorSol;
+
+        var int avanzar;
+
+        var int i, n;
+
+        let i = 0;
+        let numActualZombies = 2;
+
+        let avanzar = false;
 
         let plants = Array.new(20);
         let zombies = Array.new(20);
@@ -31,8 +43,10 @@ class Main {
         let plants = Peashooter.new(6, 3);
         let plants = Peashooter.new(9, 3);
 
-        let zombies = Zombie.new(10, 30, 3);
-        let zombies = Zombie.new(20, 24, 6);
+        let zombies[0] = Zombie.new(10, 30, 3);
+        let zombies[1] = Zombie.new(10, 24, 6);
+
+        //let zombietemp = Zombie.new(20, 24, 6);
 
         do drawPos(posx);
         do Output.moveCursor(15,1);
@@ -51,6 +65,7 @@ class Main {
                 if(contadorSol>1){
                     let plants = Sunflower.new(posx, 3); 
                     let contadorSol = contadorSol - 2;
+                    let avanzar = 250;
                 }
             }
 
@@ -58,6 +73,7 @@ class Main {
                 if(contadorSol>3){
                     let plants = Peashooter.new(posx, 3);
                     let  contadorSol = contadorSol - 4;
+                    let avanzar = 100;
                 }
             }
 
@@ -65,14 +81,54 @@ class Main {
               if(contadorSol>3){
                  let plants = Wallnut.new(posx, 3); 
                  let contadorSol = contadorSol - 4;
+                 let avanzar = 100;
                 }  
             }
 
-            let contadorSol = contadorSol + sf.generarSol();
-            let contadorSol = contadorSol + sf2.generarSol();
-            if (contadorSol > 9) {
-                let contadorSol = 9; // Limitar la cantidad de sol a 9
+            if(selected = 128){
+                let avanzar = 100;
             }
+
+            //Ciclo que se activa para avanzar el juego
+            //while(avanzar > 0){
+
+                //girasoles
+                //avanzar / 50) * 50)  = avanzar
+                if(true){
+                    let contadorSol = contadorSol + sf.generarSol();
+                    let contadorSol = contadorSol + sf2.generarSol();
+                    if (contadorSol > 9) {
+                        let contadorSol = 9; // Limitar la cantidad de sol a 9
+                    }
+                }
+
+                //((avanzar / 20)* 20) = avanzar
+                if(true){
+                    //while(i < numActualZombies){ 
+                        let zombietemp = zombies[i];
+                        let n = zombietemp.walk();
+                        let n = 0;
+                        let i = i+1;
+                    //}
+                    
+                    //para hacer que todos los zombies se muevan a la vez aticar el ciclo
+                    //para agregar un nuevo zombie descomentar el if de abajo
+
+                    //if(numActualZombies = 2){
+                        //let zombies[i] = Zombie.new(10, 30, 3);
+                        //let numActualZombies = numActualZombies + 1;
+                    //}
+
+                    if (i = numActualZombies){
+                        let i = 0;
+                    }
+                }
+
+
+                let avanzar = avanzar - 1;
+            //}
+
+            
             do drawPos(posx);
             do Output.moveCursor(15,1);
             do Output.backSpace();

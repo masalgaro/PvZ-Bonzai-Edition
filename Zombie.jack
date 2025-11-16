@@ -231,11 +231,11 @@ class Zombie{
 		return;
 	}
 
-    method void walk() {
+    method int walk() {
         if (zombiX = 0) {
             do Memory.deAlloc(this); // El zombi ya se va a salir de la pantalla y no lo necesitamos.
             // Código para que salga Game Over
-            return;
+            return 0;
         }
         if (zombiVida = 0) {
             do die();
@@ -243,7 +243,7 @@ class Zombie{
 		do deleteSprite(zombiX);
         let zombiX = zombiX - 1; // Se desplaza horizontalmente.
 		do draw(zombiX);
-        return;
+        return 0;
     }
 
     method void eat() { // Para comerse a una planta.

@@ -44,11 +44,11 @@ function Plant.eliminar 0
     pop temp 0
     push this 3
     push this 3
-    push constant 16
+    push constant 20
     add
     push this 4
     push this 4
-    push constant 16
+    push constant 20
     add
     call Screen.drawRectangle 4
     pop temp 0

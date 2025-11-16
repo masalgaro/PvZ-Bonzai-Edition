@@ -1,4 +1,10 @@
-function Main.main 20
+function Main.main 23
+    push constant 0
+    pop local 21
+    push constant 2
+    pop local 18
+    push constant 0
+    pop local 20
     push constant 20
     call Array.new 1
     pop local 15
@@ -29,16 +35,28 @@ function Main.main 20
     push constant 3
     call Peashooter.new 2
     pop local 15
+    push constant 0
+    push local 16
+    add
     push constant 10
     push constant 30
     push constant 3
     call Zombie.new 3
-    pop local 16
-    push constant 20
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
+    push constant 1
+    push local 16
+    add
+    push constant 10
     push constant 24
     push constant 6
     call Zombie.new 3
-    pop local 16
+    pop temp 0
+    pop pointer 1
+    push temp 0
+    pop that 0
     push pointer 0
     push local 8
     call Main.drawPos 2
@@ -99,6 +117,8 @@ label Main_0
     push constant 2
     sub
     pop local 19
+    push constant 250
+    pop local 20
     goto Main_4
 label Main_5
 label Main_4
@@ -123,6 +143,8 @@ label Main_2
     push constant 4
     sub
     pop local 19
+    push constant 100
+    pop local 20
     goto Main_8
 label Main_9
 label Main_8
@@ -147,12 +169,28 @@ label Main_6
     push constant 4
     sub
     pop local 19
+    push constant 100
+    pop local 20
     goto Main_12
 label Main_13
 label Main_12
     goto Main_10
 label Main_11
 label Main_10
+    push local 14
+    push constant 128
+    eq
+    not
+    if-goto Main_15
+    push constant 100
+    pop local 20
+    goto Main_14
+label Main_15
+label Main_14
+    push constant 1
+    neg
+    not
+    if-goto Main_17
     push local 19
     push local 2
     call Sunflower.generarSol 1
@@ -167,12 +205,51 @@ label Main_10
     push constant 9
     gt
     not
-    if-goto Main_15
+    if-goto Main_19
     push constant 9
     pop local 19
-    goto Main_14
-label Main_15
-label Main_14
+    goto Main_18
+label Main_19
+label Main_18
+    goto Main_16
+label Main_17
+label Main_16
+    push constant 1
+    neg
+    not
+    if-goto Main_21
+    push local 21
+    push local 16
+    add
+    pop pointer 1
+    push that 0
+    pop local 17
+    push local 17
+    call Zombie.walk 1
+    pop local 22
+    push constant 0
+    pop local 22
+    push local 21
+    push constant 1
+    add
+    pop local 21
+    push local 21
+    push local 18
+    eq
+    not
+    if-goto Main_23
+    push constant 0
+    pop local 21
+    goto Main_22
+label Main_23
+label Main_22
+    goto Main_20
+label Main_21
+label Main_20
+    push local 20
+    push constant 1
+    sub
+    pop local 20
     push pointer 0
     push local 8
     call Main.drawPos 2
@@ -180,8 +257,6 @@ label Main_14
     push constant 15
     push constant 1
     call Output.moveCursor 2
-    pop temp 0
-    call Output.backSpace 0
     pop temp 0
     call Output.backSpace 0
     pop temp 0
@@ -213,73 +288,19 @@ function Main.move 5
     push constant 0
     eq
     not
-    if-goto Main_17
+    if-goto Main_25
     push local 2
     push constant 0
     gt
     not
-    if-goto Main_19
-    push local 1
-    push constant 3
-    sub
-    pop local 1
-    push local 2
-    push constant 1
-    sub
-    pop local 2
-    goto Main_18
-label Main_19
-label Main_18
-    goto Main_16
-label Main_17
-label Main_16
-    push local 0
-    push constant 115
-    sub
-    push constant 0
-    eq
-    not
-    if-goto Main_21
-    push local 3
-    push constant 3
-    lt
-    not
-    if-goto Main_23
-    push local 1
-    push constant 32
-    push constant 32
-    call Math.multiply 2
-    add
-    pop local 1
-    push local 3
-    push constant 1
-    add
-    pop local 3
-    goto Main_22
-label Main_23
-label Main_22
-    goto Main_20
-label Main_21
-label Main_20
-    push local 0
-    push constant 100
-    sub
-    push constant 0
-    eq
-    not
-    if-goto Main_25
-    push local 2
-    push constant 10
-    lt
-    not
     if-goto Main_27
     push local 1
     push constant 3
-    add
+    sub
     pop local 1
     push local 2
     push constant 1
-    add
+    sub
     pop local 2
     goto Main_26
 label Main_27
@@ -288,17 +309,71 @@ label Main_26
 label Main_25
 label Main_24
     push local 0
-    push constant 119
+    push constant 115
     sub
     push constant 0
     eq
     not
     if-goto Main_29
     push local 3
+    push constant 3
+    lt
+    not
+    if-goto Main_31
+    push local 1
+    push constant 32
+    push constant 32
+    call Math.multiply 2
+    add
+    pop local 1
+    push local 3
+    push constant 1
+    add
+    pop local 3
+    goto Main_30
+label Main_31
+label Main_30
+    goto Main_28
+label Main_29
+label Main_28
+    push local 0
+    push constant 100
+    sub
+    push constant 0
+    eq
+    not
+    if-goto Main_33
+    push local 2
+    push constant 10
+    lt
+    not
+    if-goto Main_35
+    push local 1
+    push constant 3
+    add
+    pop local 1
+    push local 2
+    push constant 1
+    add
+    pop local 2
+    goto Main_34
+label Main_35
+label Main_34
+    goto Main_32
+label Main_33
+label Main_32
+    push local 0
+    push constant 119
+    sub
+    push constant 0
+    eq
+    not
+    if-goto Main_37
+    push local 3
     push constant 0
     gt
     not
-    if-goto Main_31
+    if-goto Main_39
     push local 1
     push constant 32
     push constant 32
@@ -309,12 +384,12 @@ label Main_24
     push constant 1
     sub
     pop local 3
-    goto Main_30
-label Main_31
-label Main_30
-    goto Main_28
-label Main_29
-label Main_28
+    goto Main_38
+label Main_39
+label Main_38
+    goto Main_36
+label Main_37
+label Main_36
     push constant 3
     call Array.new 1
     pop local 4
