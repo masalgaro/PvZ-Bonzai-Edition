@@ -18,3 +18,10 @@ The official nand2tetris website links to an online IDE that features a [*Jack c
 Sun is automatically added to your counter as sunflowers produce it, so there's no need to hover over them periodically.  
 Keep track of both sun costs and plant cooldowns, and try to survive until the timer runs out!  
 You lose the game if a zombie breaches through your defenses and exits reaches the left side of the screen, no lawnmowers to save you in this one.  
+
+Video: 
+https://eafit-my.sharepoint.com/:v:/g/personal/jcfernandv_eafit_edu_co/ETCGTKZ1wWBIt1Su72aEASEBuugS1B2Ymdk5GKAmpZIo-Q?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=uy0Sty
+
+-Martin Valencia
+-Miguel Angel Gomez
+-Juan Carlos Fernandez 
